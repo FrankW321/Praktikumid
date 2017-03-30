@@ -8,26 +8,36 @@
         function arvuta() {
             var letihind =
                 parseFloat(document.getElementById("letihind").value);
-            var km = letihind * 20 / 120;
+            var km = letihind * 1.07615;
             // km=Math.round(km*100)/100; //ümardus 2 kohta pärast koma.
             km = km.toFixed(2);
             document.getElementById("vastus").innerHTML = km;
             document.getElementById("sisseantudSumma").innerHTML = letihind;
         }
+
+        function arvutaUSD() {
+            var letihind_USD =
+                parseFloat(document.getElementById("letihind_USD").value);
+            var USD = letihind_USD * 0.929238489;
+            // km=Math.round(km*100)/100; //ümardus 2 kohta pärast koma.
+            USD = USD.toFixed(2);
+            document.getElementById("vastus2").innerHTML = USD;
+        }
     </script>
 </head>
-
 <body>
     <h1>Katsetuste leht</h1>
-    Palun sisesta letihind:
-    <input type="text" id="letihind" />
-    <input type="button" value="OK" onclick="arvuta();" />
-    <div id="vastus">
-        Vastuse koht.
-    </div>
-        <div id="sisseantudSumma">
-        Sisseantud summa.
-    </div>
+    Palun sisesta raha:
+    <br>
+    	<input type="text" id="letihind" />
+    	<input type="button" value="EUR" onclick="arvuta();" />
+    <br>
+    	<input type="text" id="letihind_USD" />
+    	<input type="button" value="USD" onclick="arvutaUSD();" />
+    	<div id="vastus">USD</div>
+   		<div id="vastus2">EUR</div>
+    <br>
+    	Sisseantud summa.
+    	<div id="sisseantudSumma"></div>
 </body>
-
 </html>
