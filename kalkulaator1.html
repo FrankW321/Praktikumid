@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Käibemaksu arvutus</title>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+    var komisjon = 0.03; //3%komisjonitasu
+        function arvuta() {
+            var letihind =
+                parseFloat(document.getElementById("letihind").value);
+            var komisjonimaks=(letihind * 1.07615 )* komisjon;
+            var km = (letihind * 1.07615 ) - komisjonimaks;
+            // km=Math.round(km*100)/100; //ümardus 2 kohta pärast koma.
+            km = km.toFixed(2);
+            document.getElementById("vastus").innerHTML = km;
+            document.getElementById("sisseantudSumma").innerHTML = letihind;
+        }
+
+        function arvutaUSD() {
+            var letihind_USD =
+                parseFloat(document.getElementById("letihind_USD").value);
+            var komisjonimaks=(letihind_USD * 1.07615 )* komisjon;
+            var USD = (letihind_USD * 0.929238489 )* komisjon;
+            // km=Math.round(km*100)/100; //ümardus 2 kohta pärast koma.
+            USD = USD.toFixed(2);
+            document.getElementById("vastus2").innerHTML = USD;
+        }
+    </script>
+</head>
+<body>
+    <h1>Katsetuste leht</h1>
+    Palun sisesta raha: (arvutamisel kasutatakse 3% komisjonitasu)
+    <br>
+    	<input type="text" id="letihind" />
+    	<input type="button" value="EUR" onclick="arvuta();" />
+    <br>
+    	<input type="text" id="letihind_USD" />
+    	<input type="button" value="USD" onclick="arvutaUSD();" />
+    	<div id="vastus">USD</div>
+   		<div id="vastus2">EUR</div>
+    <br>
+    	Sisseantud summa.
+    	<div id="sisseantudSumma"></div>
+</body>
+</html>
