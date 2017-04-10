@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -56,6 +56,18 @@
             seisund = "roheline";
             joonista();
         }
+
+        function arvutaArve() {
+            var sisseIstumine= 2.50;
+            var sisend = parseFloat(document.getElementById("sisend").value);
+            var arve = sisend * 0.5  + sisseIstumine;
+            var arve = arve.toFixed(2);
+            document.getElementById("vastus").innerHTML = arve;
+            var arve_oo = arve * 2;
+            var arve_oo = arve_oo.toFixed(2);
+            document.getElementById("vastus2").innerHTML = arve_oo;
+        }
+
     </script>
 </head>
 
@@ -65,8 +77,13 @@
     <input type="button" value="Punaseks" onclick="punaseks()" />
     <input type="button" value="Kollaseks" onclick="kollaseks()" />
     <input type="button" value="Roheliseks" onclick="roheliseks()" />
-    Sisseistumistasu = 2.50
-    Kilomeeter = 0.50
+    <br><br>Taksokalkulaator<br><br>
+    <input type="text" id="sisend" />
+    <input type="button" value="Arvuta" onclick="arvutaArve();" />
+        <div id="vastus">Päeval</div>
+        <div id="vastus2">Öösel</div>
+    <br>
+    <b>Sisseistumistasu = 2.50 Kilomeeter = 0.50</b>
 </body>
 
 </html>
